@@ -1,4 +1,4 @@
-import EStyleSheet from 'react-native-extended-stylesheet';
+import EStyleSheet from 'react-native-extended-stylesheet'
 
 const styles = EStyleSheet.create({
     container: {
@@ -7,6 +7,6 @@ const styles = EStyleSheet.create({
         justifyContent: 'center',
         backgroundColor: '$primaryBlue'
     }
-});
+})
 
-export default styles;
+export default styles

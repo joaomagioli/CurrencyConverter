@@ -1,7 +1,7 @@
-import EStyleSheet from 'react-native-extended-stylesheet';
-import { Dimensions } from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet'
+import { Dimensions } from 'react-native'
 
-const imageWidth = Dimensions.get('window').width / 2;
+const imageWidth = Dimensions.get('window').width / 2
 
 const styles = EStyleSheet.create({
     container: {
@@ -23,6 +23,6 @@ const styles = EStyleSheet.create({
         marginTop: 15,
         fontWeight: '600',
     },
-});
+})
 
 export default styles;
