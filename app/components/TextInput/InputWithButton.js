@@ -7,9 +7,16 @@ export default class InputWithButton extends Component {
     constructor(props) {
         super(props)
     }
+
     render() {
+
+        const containerStyle = [styles.container]
+        if (this.props.editable === false) {
+            containerStyle.push(styles.containerDisabled)
+        }
+
         return (
-            <View style={styles.container}>
+            <View style={containerStyle}>
                 <TouchableHighlight
                     style={styles.buttonContainer}
                     onPress={this.props.onPress}>
@@ -19,7 +26,11 @@ export default class InputWithButton extends Component {
                     </Text>
                 </TouchableHighlight>
                 <View style={styles.border}></View>
-                <TextInput style={styles.input}></TextInput>
+                <TextInput
+                    style={styles.input}
+                    editable={this.props.editable} >
+                    {this.props.defaultValue}
+                </TextInput>
             </View>
         )
     }
@@ -28,5 +39,6 @@ export default class InputWithButton extends Component {
 InputWithButton.propTypes = {
     onPress: PropTypes.func,
     buttonText: PropTypes.string,
+    defaultValue: PropTypes.string,
     editable: PropTypes.bool
 }

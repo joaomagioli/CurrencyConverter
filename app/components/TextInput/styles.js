@@ -14,6 +14,9 @@ const styles = EStyleSheet.create({
         alignItems: 'center',
         marginVertical: 11
     },
+    containerDisabled: {
+        backgroundColor: '#F0F0F0'
+    },
     buttonContainer: {
         backgroundColor: '$white',
         height: INPUT_HEIGHT,

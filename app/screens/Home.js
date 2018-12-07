@@ -9,8 +9,6 @@ const TEMP_QUOTE_CURRENCY = 'GBP'
 const TEMP_BASE_PRICE = '100'
 const TEMP_QUOTE_PRICE = '79.74'
 
-// PAREI NO 18:44 DO VÍDEO
-
 export default class Home extends Component {
 
     handlePressBaseCurrency = () => {
@@ -28,11 +26,16 @@ export default class Home extends Component {
                 <Logo />
                 <InputWithButton
                     buttonText={TEMP_BASE_CURRENCY}
-                    onPress={this.handlePressBaseCurrency} />
+                    onPress={this.handlePressBaseCurrency}
+                    editable={true}
+                    defaultValue={TEMP_BASE_PRICE}
+                    keyboardType='numeric' />
                 <InputWithButton
                     buttonText={TEMP_QUOTE_CURRENCY}
                     onPress={this.handlePressQuoteCurrency}
-                    editable={false} />
+                    editable={false}
+                    defaultValue={TEMP_QUOTE_PRICE}
+                    keyboardType='numeric' />
             </Container>
         )
     }
