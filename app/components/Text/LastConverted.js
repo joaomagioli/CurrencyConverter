@@ -11,8 +11,7 @@ export default class LastConverted extends Component {
     render() {
         return (
             <Text style={styles.smallText}>
-                1 {this.props.base} = {this.props.conversionRate}
-                {this.props.quote} as of {moment(this.props.date).format('MMMM D, YYYY')}
+                1 {this.props.base} = {this.props.conversionRate} {this.props.quote} as of {moment(this.props.date).format('MMMM D, YYYY')}
             </Text>
         )
     }

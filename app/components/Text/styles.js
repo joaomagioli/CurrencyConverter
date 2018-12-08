@@ -2,8 +2,10 @@ import EStyleSheet from 'react-native-extended-stylesheet'
 
 export default EStyleSheet.create({
     smallText: {
+        flexDirection: 'row',
         color: '$white',
-        fontSize: 12,
-        alignItems: 'center'
+        textAlign: 'center',
+        fontWeight: 'bold',
+        fontSize: 13,
     }
 })
