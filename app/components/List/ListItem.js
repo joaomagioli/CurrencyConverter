@@ -18,6 +18,7 @@ export default class ListItem extends Component {
                             checkmark={this.props.checkmark = true}
                             visible={this.propsvisible = true} /> :
                         <Icon />}
+                    {this.props.customIcon}
                 </View>
             </TouchableHighlight>
         )
@@ -29,5 +30,6 @@ ListItem.propTypes = {
     selected: PropTypes.bool,
     onPress: PropTypes.func,
     checkmark: PropTypes.bool,
-    visible: PropTypes.bool
+    visible: PropTypes.bool,
+    customIcon: PropTypes.element
 }

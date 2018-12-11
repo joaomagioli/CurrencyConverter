@@ -1,6 +1,6 @@
 import React from 'react'
 import Home from './screens/Home'
-import CurrencyList from './screens/CurrencyList'
+import Options from './screens/Options'
 import EStyleSheet from 'react-native-extended-stylesheet'
 
 EStyleSheet.build({
@@ -8,4 +8,4 @@ EStyleSheet.build({
     $white: '#FFFFFF'
 })
 
-export default () => <Home />
+export default () => <Options />
