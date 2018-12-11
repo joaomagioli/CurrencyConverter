@@ -16,6 +16,7 @@ export default class ListItem extends Component {
                     {this.props.selected ?
                         <Icon
                             checkmark={this.props.checkmark = true}
+                            iconBackground={this.props.iconBackground}
                             visible={this.propsvisible = true} /> :
                         <Icon />}
                     {this.props.customIcon}
@@ -31,5 +32,6 @@ ListItem.propTypes = {
     onPress: PropTypes.func,
     checkmark: PropTypes.bool,
     visible: PropTypes.bool,
-    customIcon: PropTypes.element
+    customIcon: PropTypes.element,
+    iconBackground: PropTypes.string
 }

@@ -14,6 +14,10 @@ export default class Icon extends Component {
             iconStyles.push(styles.iconVisible)
         }
 
+        if (this.props.iconBackground) {
+            iconStyles.push({ backgroundColor: this.props.iconBackground });
+        }
+
         return (
             <View style={iconStyles}>
                 {this.props.checkmark ?
@@ -28,5 +32,6 @@ export default class Icon extends Component {
 
 Icon.propTypes = {
     checkmark: PropTypes.bool,
-    visible: PropTypes.bool
+    visible: PropTypes.bool,
+    iconBackground: PropTypes.string
 }
