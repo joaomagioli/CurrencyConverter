@@ -10,7 +10,7 @@ export default class ListItem extends Component {
     }
     render() {
         return (
-            <TouchableHighlight onPress={this.props.handlePress} underlayColor={styles.$underlayColo}>
+            <TouchableHighlight onPress={this.props.onPress} underlayColor={styles.$underlayColo}>
                 <View style={styles.row} >
                     <Text style={styles.text}>{this.props.text}</Text>
                     {this.props.selected ?
