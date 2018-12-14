@@ -7,6 +7,7 @@ import { InputWithButton } from '../components/TextInput'
 import { ClearButton } from '../components/Button'
 import { LastConverted } from '../components/Text'
 import { Header } from '../components/Header'
+import { swapCurrency, changeCurrencyAmount } from '../actions/currencies'
 
 const TEMP_BASE_CURRENCY = 'USD'
 const TEMP_QUOTE_CURRENCY = 'GBP'
@@ -21,6 +22,10 @@ export default class Home extends Component {
         navigation: PropTypes.object
     }
 
+    handleChangeText = (text) => {
+        console.log(changeCurrencyAmount(text))
+    }
+
     handlePressBaseCurrency = () => {
         this.props.navigation.navigate('CurrencyList', { title: 'Base Currency' })
     }
@@ -30,7 +35,7 @@ export default class Home extends Component {
     }
 
     handlePressSwapCurrency = () => {
-        console.log('Press revert concurrencies')
+        console.log(swapCurrency())
     }
 
     handleOptionsPress = () => {
@@ -49,13 +54,15 @@ export default class Home extends Component {
                         onPress={this.handlePressBaseCurrency}
                         editable={true}
                         defaultValue={TEMP_BASE_PRICE}
-                        keyboardType='numeric' />
+                        keyboardType='numeric'
+                        onChangeText={this.handleChangeText} />
                     <InputWithButton
                         buttonText={TEMP_QUOTE_CURRENCY}
                         onPress={this.handlePressQuoteCurrency}
                         editable={false}
                         defaultValue={TEMP_QUOTE_PRICE}
-                        keyboardType='numeric' />
+                        keyboardType='numeric'
+                        onChangeText={this.handleChangeText} />
                     <LastConverted
                         base={TEMP_BASE_CURRENCY}
                         quote={TEMP_QUOTE_CURRENCY}

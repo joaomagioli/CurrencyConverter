@@ -19,7 +19,7 @@ export default class InputWithButton extends Component {
             <View style={containerStyle}>
                 <TouchableHighlight
                     style={styles.buttonContainer}
-                    onPress={this.props.onPress}>
+                    onChangeText={this.props.onChangeText}>
                     <Text
                         style={styles.buttonText}>
                         {this.props.buttonText}
@@ -37,8 +37,8 @@ export default class InputWithButton extends Component {
 }
 
 InputWithButton.propTypes = {
-    onPress: PropTypes.func,
     buttonText: PropTypes.string,
     defaultValue: PropTypes.string,
-    editable: PropTypes.bool
+    editable: PropTypes.bool,
+    onChangeText: PropTypes.func
 }
