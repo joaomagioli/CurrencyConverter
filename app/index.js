@@ -2,6 +2,7 @@ import React from 'react'
 import EStyleSheet from 'react-native-extended-stylesheet'
 import Navigator from './config/routes'
 import { AlertProvider } from './components/Alert'
+import './reducers'
 
 EStyleSheet.build({
     $primaryBlue: '#4F6D7A',

@@ -9,7 +9,6 @@ export default class InputWithButton extends Component {
     }
 
     render() {
-
         const containerStyle = [styles.container]
         if (this.props.editable === false) {
             containerStyle.push(styles.containerDisabled)
