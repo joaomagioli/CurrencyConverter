@@ -2,8 +2,8 @@ import React from 'react'
 import EStyleSheet from 'react-native-extended-stylesheet'
 import Navigator from './config/routes'
 import { AlertProvider } from './components/Alert'
-import { Provider } from 'redux'
-import store from '../config/store'
+import { Provider } from 'react-redux'
+import store from './config/store'
 import './reducers'
 
 EStyleSheet.build({
@@ -15,7 +15,7 @@ EStyleSheet.build({
 })
 
 export default () => (
-    <Provider store={store}>
+    <Provider store={store} r>
         <AlertProvider>
             <Navigator />
         </AlertProvider>
