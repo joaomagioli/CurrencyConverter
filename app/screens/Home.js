@@ -10,11 +10,6 @@ import { Header } from '../components/Header'
 import { changeCurrencyAmount, swapCurrency } from '../actions/currencies';
 import { connect } from 'react-redux'
 
-const TEMP_CONVERSION_RATE = 0.7974
-const TEMP_CONVERSION_DATE = new Date()
-
-//PAREI COM 12:25 DO VÍDEO
-
 class Home extends Component {
 
     static propTypes = {
@@ -50,7 +45,11 @@ class Home extends Component {
 
     render() {
 
-        let quotePrice = (this.props.amount * this.props.conversionRate).toFixed(2)
+        let quotePrice = '...'
+
+        if (!this.props.isFetching) {
+            quotePrice = (this.props.amount * this.props.conversionRate).toFixed(2)
+        }
 
         return (
             <Container>
@@ -59,21 +58,22 @@ class Home extends Component {
                 <KeyboardAvoidingView behavior="padding">
                     <Logo />
                     <InputWithButton
+                        keyboardType={'numeric'}
                         buttonText={this.props.baseCurrency}
                         onPress={this.handlePressBaseCurrency}
                         defaultValue={this.props.amount.toString()}
-                        keyboardType='numeric'
                         onChangeText={this.handleChangeText} />
                     <InputWithButton
+                        keyboardType={'numeric'}
                         editable={false}
                         buttonText={this.props.quoteCurrency}
                         onPress={this.handlePressQuoteCurrency}
                         defaultValue={quotePrice} />
                     <LastConverted
-                        date={TEMP_CONVERSION_DATE}
+                        date={this.props.lastConvertedDate}
                         base={this.props.baseCurrency}
                         quote={this.props.quoteCurrency}
-                        conversionRate={TEMP_CONVERSION_RATE} />
+                        conversionRate={this.props.conversionRate} />
                     <ClearButton
                         onPress={this.handlePressSwapCurrency}
                         text='Revert Currencies' />
@@ -94,7 +94,9 @@ const mapStateToProps = (state) => {
         baseCurrency,
         quoteCurrency,
         amount: state.currencies.amount,
-        conversionRate: rates[quoteCurrency] || 0
+        conversionRate: rates[quoteCurrency] || 0,
+        isFetching: conversionSelector.isFetching,
+        lastConvertedDate: conversionSelector.date ? new Date(conversionSelector.date) : new Date()
     }
 }
 

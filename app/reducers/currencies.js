@@ -1,13 +1,11 @@
-import {
-    SWAP_CURRENCY, CHANGE_CURRENCY_AMOUNT
-} from '../actions/currencies'
+import { CHANGE_CURRENCY_AMOUNT, SWAP_CURRENCY } from '../actions/currencies';
 
 // const initialState = {
-//     baseCurrency: 'USD',
-//     quoteCurrency: 'GBP',
-//     amount: 100,
-//     conversions: {}
-// }
+//   baseCurrency: 'USD',
+//   quoteCurrency: 'GBP',
+//   amount: 100,
+//   conversions: {},
+// };
 
 const initialState = {
     baseCurrency: 'USD',
@@ -53,24 +51,19 @@ const initialState = {
             },
         },
     },
-}
+};
 
-const reducer = (state = initialState, action) => {
+export default (state = initialState, action) => {
     switch (action.type) {
         case CHANGE_CURRENCY_AMOUNT:
-            return {
-                // spread operator que recupera o estado anterior e passa ao novo objeto
-                ...state,
-                amount: action.amount || 0
-            }
+            return { ...state, amount: action.amount || 0 };
         case SWAP_CURRENCY:
             return {
                 ...state,
                 baseCurrency: state.quoteCurrency,
-                quoteCurrency: state.baseCurrency
-            }
-        default: return state
+                quoteCurrency: state.baseCurrency,
+            };
+        default:
+            return state;
     }
-}
-
-export default reducer
+};
