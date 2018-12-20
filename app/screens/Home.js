@@ -7,7 +7,7 @@ import { InputWithButton } from '../components/TextInput'
 import { ClearButton } from '../components/Button'
 import { LastConverted } from '../components/Text'
 import { Header } from '../components/Header'
-import { changeCurrencyAmount, swapCurrency } from '../actions/currencies';
+import { changeCurrencyAmount, swapCurrency, getInitialConversion } from '../actions/currencies';
 import { connect } from 'react-redux'
 
 class Home extends Component {
@@ -22,6 +22,10 @@ class Home extends Component {
         lastConvertedDate: PropTypes.object,
         isFetching: PropTypes.bool,
         primaryColor: PropTypes.string,
+    }
+
+    componentWillMount() {
+        this.props.dispatch(getInitialConversion())
     }
 
     handleChangeText = (text) => {
