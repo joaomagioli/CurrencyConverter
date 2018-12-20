@@ -8,8 +8,14 @@ export default class Container extends Component {
         super(props)
     }
     render() {
+        const containerStyles = [styles.container]
+
+        if (this.props.backgroundColor) {
+            containerStyles.push({ backgroundColor: this.props.backgroundColor })
+        }
+
         return (
-            <View style={styles.container}>
+            <View style={containerStyles}>
                 {this.props.children}
             </View>
         )
@@ -18,4 +24,5 @@ export default class Container extends Component {
 
 Container.propTypes = {
     children: PropTypes.any,
+    backgroundColor: PropTypes.string
 }

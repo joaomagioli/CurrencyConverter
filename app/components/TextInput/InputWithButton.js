@@ -10,6 +10,11 @@ export default class InputWithButton extends Component {
 
     render() {
         const containerStyle = [styles.container]
+        const textColorStyle = [styles.buttonText]
+
+        if (this.props.textColor) {
+            textColorStyle.push({ color: this.props.textColor })
+        }
 
         if (this.props.editable === false) {
             containerStyle.push(styles.containerDisabled)
@@ -21,7 +26,7 @@ export default class InputWithButton extends Component {
                     style={styles.buttonContainer}
                     onPress={this.props.onPress}>
                     <Text
-                        style={styles.buttonText}>
+                        style={textColorStyle}>
                         {this.props.buttonText}
                     </Text>
                 </TouchableHighlight>
@@ -44,5 +49,6 @@ InputWithButton.propTypes = {
     editable: PropTypes.bool,
     onPress: PropTypes.func,
     keyboardType: PropTypes.string,
-    onChangeText: PropTypes.func
+    onChangeText: PropTypes.func,
+    textColor: PropTypes.string
 }
